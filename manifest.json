@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Stylesheet Links Extractor",
+    "version": "1.0",
+    "description": "Extracts all stylesheet links from a webpage and displays them in a textarea.",
+    "permissions": ["activeTab"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["assets/js/content.js"]
+      }
+    ]
+   }
