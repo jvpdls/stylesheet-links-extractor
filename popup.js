@@ -6,38 +6,46 @@
  */
 function printURLs(urls) {
   let responseContainer = document.getElementById("response-container");
-  responseContainer.classList.add("mt-4");
-  let message = document.createElement("article");
-  message.classList.add("message");
-  let messageHeader = document.createElement("div");
-  messageHeader.classList.add("message-header");
-  let messageHeaderParagraph = document.createElement("p");
-  messageHeaderParagraph.textContent = "Extracted Stylesheet URLs";
-  messageHeader.appendChild(messageHeaderParagraph);
-  message.appendChild(messageHeader);
-  let messageBody = document.createElement("div");
-  messageBody.classList.add("message-body");
 
-  // If no URLs were found, print a message
+  let table = document.createElement("table");
+
+  let thead = document.createElement("thead");
+  let headerRow = document.createElement("tr");
+  let headerCell = document.createElement("th");
+  headerCell.textContent = "Stylesheet Links";
+  headerRow.appendChild(headerCell);
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  let tbody = document.createElement("tbody");
+
   if (urls.length === 0) {
-    let noURLsParagraph = document.createElement("p");
-    noURLsParagraph.textContent = "No stylesheet URLs were found.";
-    messageBody.appendChild(noURLsParagraph);
+    let row = document.createElement("tr");
+    let cell = document.createElement("td");
+    cell.textContent = "No stylesheet URLs were found.";
+    row.appendChild(cell);
+    tbody.appendChild(row);
   } else {
-    // Print URLs line by line
     urls.forEach((url) => {
-      let urlParagraph = document.createElement("p");
-      urlParagraph.textContent = url;
-      messageBody.appendChild(urlParagraph);
+      let row = document.createElement("tr");
+      let cell = document.createElement("td");
+      let link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.textContent = url;
+      cell.appendChild(link);
+      row.appendChild(cell);
+      tbody.appendChild(row);
     });
   }
 
-  // Remove the previous response if it exists
+  table.appendChild(tbody);
+
   if (responseContainer.children.length > 0) {
     responseContainer.removeChild(responseContainer.children[0]);
   }
-  message.appendChild(messageBody);
-  responseContainer.appendChild(message);
+  responseContainer.classList.remove("is-hidden");
+  responseContainer.appendChild(table);
 }
 
 /*
