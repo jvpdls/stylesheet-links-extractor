@@ -28,7 +28,12 @@ function printURLs(urls) {
       let row = document.createElement("tr");
       let cell = document.createElement("td");
       cell.textContent = "No stylesheet URLs were found.";
+
+      let sizeCell = document.createElement("td");
+      sizeCell.textContent = "N/A";
+
       row.appendChild(cell);
+      row.appendChild(sizeCell);
       tbody.appendChild(row);
     } else {
       Promise.all(urls.map(getStylesheetSize)).then((sizes) => {
@@ -71,7 +76,12 @@ function getStylesheetSize(url) {
   return fetch(url)
     .then((response) => {
       if (response.ok) {
-        return response.headers.get("content-length");
+        let fileLength = response.headers.get("content-length");
+        if (fileLength != null) {
+          return fileLength;
+        } else {
+          return "N/A";
+        }
       } else {
         return "N/A";
       }
