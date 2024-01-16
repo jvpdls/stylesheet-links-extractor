@@ -1,4 +1,4 @@
-# Stylesheet Links Extractor
+# Stylesheet Links Extractor | Browser Extension
 
 This is a browser extension that lists, in a table, all the stylesheet URLs available on a given webpage.
 
