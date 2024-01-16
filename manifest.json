@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Stylesheet Links Extractor",
   "version": "1.0",
-  "description": "Extracts all stylesheet links from a webpage and displays them in a textarea.",
+  "description": "Extracts all stylesheet links from a webpage and displays them in a table.",
   "permissions": [
     "activeTab"
   ],
