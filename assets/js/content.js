@@ -2,7 +2,7 @@
  * Retrieves all stylesheet links from the current document.
  * @returns {string[]} An array of stylesheet URLs.
  */
-function _getAllStyleSheetLinks() {
+function getAllStyleSheetLinks() {
   let stylesheets = [];
   let links = document.getElementsByTagName("link");
   for (let i = 0; i < links.length; i++) {
@@ -18,7 +18,7 @@ function _getAllStyleSheetLinks() {
  * @param {string[]} stylesheets - An array of stylesheet URLs.
  * @returns {string[]} An array of stylesheet URLs.
  */
-function _addDomainToRelativeLinks(stylesheets) {
+function addDomainToRelativeLinks(stylesheets) {
   let domain = window.location.origin;
   for (let i = 0; i < stylesheets.length; i++) {
     if (
@@ -43,8 +43,8 @@ function _addDomainToRelativeLinks(stylesheets) {
  * @returns {string[]} An array of stylesheet URLs.
  */
 function extractContent() {
-  let stylesheets = _getAllStyleSheetLinks();
-  fullStylesheetsURLs = _addDomainToRelativeLinks(stylesheets);
+  let stylesheets = getAllStyleSheetLinks();
+  fullStylesheetsURLs = addDomainToRelativeLinks(stylesheets);
   return fullStylesheetsURLs;
 }
 
