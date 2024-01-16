@@ -5,7 +5,7 @@ This is a browser extension that lists, in a table, all the stylesheet URLs avai
 ## Installation guide
 
 - Clone this repo: `git clone https://github.com/jvpdls/stylesheet-links-extractor.git`
-- Access your browser's extensions panel (e.g.: chrome://extensions/)
+- Access your browser's extensions panel (e.g.: [chrome://extensions/](chrome://extensions))
 - Enable developer mode and upload the project folder to your browser
 
 ## Using the extension
