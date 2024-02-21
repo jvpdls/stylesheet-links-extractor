@@ -13,6 +13,9 @@
       .is-hidden {
         display: none;
       }
+      td {
+        overflow-wrap: anywhere;
+      }
     </style>
   </head>
   <body>
@@ -27,8 +30,7 @@
         </p>
         <button id="extractBtn" type="button">Extract Stylesheet Links</button>
       </article>
-      <div class="table-container is-hidden" id="response-container">
-      </div>
+      <div class="table-container is-hidden" id="response-container"></div>
     </main>
     <footer>
       <p>
