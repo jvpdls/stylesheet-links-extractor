@@ -7,6 +7,9 @@
 function printURLs(urls) {
   return new Promise((resolve) => {
     let responseContainer = document.getElementById("response-container");
+    
+    // Clear the response container, in case there is already a table there.
+    responseContainer.innerHTML = "";
 
     let table = document.createElement("table");
     table.id = "response";
@@ -56,10 +59,6 @@ function printURLs(urls) {
     }
 
     table.appendChild(tbody);
-
-    if (responseContainer.children.length > 0) {
-      responseContainer.removeChild(responseContainer.children[0]);
-    }
     responseContainer.classList.remove("is-hidden");
     responseContainer.appendChild(table);
     resolve();
